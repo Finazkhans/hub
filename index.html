@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Er. Arshiya &amp; Er. Adil Faraz - Wedding Invitation</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-ivory: #fcfbfa;
+            --rose-floral: #fdf2f4;
+            --gold: #c5a059;
+            --gold-light: #dfc288;
+            --charcoal: #1c1c1c;
+            --text-muted: #555555;
+            --white: #ffffff;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-ivory);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- WELCOME POPUP OVERLAY --- */
+        #welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.88);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #welcome-overlay.opened {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .welcome-card {
+            background: linear-gradient(145deg, #1c1c1c, #2c2c2c);
+            border: 2px solid var(--gold);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 14px;
+            max-width: 440px;
+            width: 90%;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            color: var(--white);
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardEntrance {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .welcome-badge {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0 auto 1.2rem auto;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .welcome-bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .welcome-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .welcome-card p {
+            font-size: 0.85rem;
+            color: #b5b5b5;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .open-btn {
+            background: var(--gold);
+            border: none;
+            color: var(--charcoal);
+            padding: 0.9rem 2.2rem;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+
+        .open-btn:hover {
+            background: var(--white);
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.6);
+            color: var(--charcoal);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .invitation-container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: var(--white);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            position: relative;
+            padding: 3rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .invitation-container {
+                margin: 0;
+                border: none;
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* Ornamental Frame */
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 12px; left: 12px; right: 12px; bottom: 12px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+        }
+
+        /* --- BISSESMILLAH & HEADERS --- */
+        .bismillah-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .host-intro {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .host-intro strong {
+            color: var(--charcoal);
+            font-style: normal;
+        }
+
+        /* --- COUPLE NAMES --- */
+        .couple-section {
+            text-align: center;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .name-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 1px;
+        }
+
+        .name-sub {
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin: 0.5rem 0;
+            font-style: italic;
+        }
+
+        /* --- QUICK ACTION BUTTONS --- */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 2.5rem auto;
+        }
+
+        .action-btn {
+            background: var(--charcoal);
+            color: var(--white);
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 40px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .action-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.secondary {
+            background: var(--gold);
+            color: var(--charcoal);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--charcoal);
+            color: var(--gold);
+        }
+
+        /* --- DUA SECTION --- */
+        .dua-box {
+            background: var(--rose-floral);
+            border-left: 3px solid var(--gold);
+            padding: 1.8rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .dua-box h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .dua-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .dua-amen {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* --- EVENTS ITINERARY --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header span {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+            margin-top: 0.3rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .event-card {
+            background: var(--bg-ivory);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 2.2rem;
+            border-radius: 8px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15);
+            border-color: var(--gold);
+        }
+
+        .event-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--charcoal);
+            color: var(--gold);
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .event-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .event-meta {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event-meta i {
+            color: var(--gold);
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .map-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+        }
+
+        /* --- COUNTDOWN TIMER --- */
+        .countdown-container {
+            background: linear-gradient(135deg, #1c1c1c 0%, #333333 100%);
+            color: var(--white);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .countdown-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--gold);
+            padding: 1rem;
+            min-width: 85px;
+            border-radius: 6px;
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ccc;
+            margin-top: 0.2rem;
+        }
+
+        /* --- RSVP & WISHES SECTION --- */
+        .rsvp-section {
+            background: var(--rose-floral);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--charcoal);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #dcd6d0;
+            border-radius: 6px;
+            font-family: inherit;
+            background: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(197, 160, 89, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--charcoal);
+            color: var(--gold);
+            border: none;
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .whatsapp-rsvp-btn {
+            width: 100%;
+            background: #25d366;
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: var(--transition);
+            margin-top: 0.8rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-rsvp-btn:hover {
+            background: #1ebe5d;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* --- WISHES WALL --- */
+        .wishes-wall {
+            margin-top: 3rem;
+        }
+
+        .wishes-wall h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        .wish-cards-container {
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-right: 5px;
+        }
+
+        .wish-card {
+            background: var(--white);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .wish-card .author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .wish-card .message {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* --- FOOTER REGARDS --- */
+        .footer-section {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px dashed rgba(197, 160, 89, 0.4);
+        }
+
+        .footer-section h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .contact-pills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0;
+        }
+
+        .contact-pill {
+            background: var(--bg-ivory);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-pill i {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WELCOME POPUP OVERLAY -->
+    <div id="welcome-overlay">
+        <div class="welcome-card">
+            <div class="welcome-badge">Kuppelur's Wedding Invitation</div>
+            <div class="welcome-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <h2>You Are Cordially Invited</h2>
+            <p>Click below to open your invitation card</p>
+            <button class="open-btn" onclick="openInvitation()">
+                <i class="fa-solid fa-envelope-open-text"></i> Open Invitation
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN INVITATION CARD -->
+    <div class="invitation-container">
+        
+        <!-- Bismillah in Urdu/Arabic -->
+        <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+        <!-- Host Intro -->
+        <div class="host-intro">
+            In the name of Almighty, the most Gracious the most Merciful<br>
+            <strong>Mr. &amp; Mrs. Maqbool Sab S/o. Late Babajan Sab Kuppelur</strong><br>
+            Cordially invite you with your family to witness and shower your blessings and celebrate with us the joyous occasion of the Wedding of My Beloved Daughter
+        </div>
+
+        <!-- Couple Section -->
+        <div class="couple-section">
+            <div class="name-sub">Elder D/o. Maqbool Sab Kuppelur</div>
+            <div class="name-title">Er. Arshiya <span style="font-size: 1.2rem; color: var(--gold);">(B.E.)</span></div>
+            <div class="ampersand">&amp;</div>
+            <div class="name-sub">Younger S/o. Akbarbasha Ballari</div>
+            <div class="name-title">Er. Adil Faraz <span style="font-size: 1.2rem; color: var(--gold);">(B.E.)</span></div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="action-buttons">
+            <a href="#events" class="action-btn"><i class="fa-solid fa-calendar-days"></i> View Events &amp; Venues</a>
+            <a href="#rsvp" class="action-btn secondary"><i class="fa-solid fa-envelope-open-text"></i> RSVP &amp; Wishes</a>
+        </div>
+
+        <!-- Dua for Couple -->
+        <div class="dua-box">
+            <h4>:: Dua for Couple ::</h4>
+            <p>"May Almighty grant the couple a lifetime of love, happiness, peace &amp; togetherness. May Almighty bless them with good health, wealth, success &amp; understanding &amp; guide them both to always follow the straight path. May their bond grow stronger with each passing day, and may their married life be filled with endless joy &amp; blessings."</p>
+            <div class="dua-amen">Ameen Ya Rabbal Alameen</div>
+        </div>
+
+        <!-- Events Itinerary -->
+        <div id="events" class="section-header">
+            <span>Celebration Itinerary</span>
+            <h2>Wedding Events &amp; Venues</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">We cordially invite you to grace the ceremonies with your esteemed presence.</p>
+        </div>
+
+        <div class="events-grid">
+            <!-- Nikah -->
+            <div class="event-card">
+                <div class="event-tag">Sacred Vows</div>
+                <div style="font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem;"><i class="fa-solid fa-ring"></i></div>
+                <h3>Mehfil-e-Nikah</h3>
+                <div class="event-desc">Join us for the sacred solemnization of marriage and commencement of our journey together.</div>
+                <div class="event-meta"><i class="fa-regular fa-calendar"></i> Monday, 14th December 2026</div>
+                <div class="event-meta"><i class="fa-regular fa-clock"></i> 12:15 PM Onwards</div>
+                <div class="event-meta"><i class="fa-solid fa-location-dot"></i> <strong>ANJUMAN SHADI HALL</strong>, Channalli Road, Hirekerur</div>
+                <a href="https://maps.google.com/?q=Anjuman+Shadi+Hall+Hirekerur" target="_blank" class="map-btn">
+                    Get Directions &rarr;
+                </a>
+            </div>
+
+            <!-- Valima -->
+            <div class="event-card">
+                <div class="event-tag" style="background: var(--gold); color: var(--charcoal);">Grand Reception</div>
+                <div style="font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem;"><i class="fa-solid fa-champagne-glasses"></i></div>
+                <h3>Dawat-e-Valima (Reception)</h3>
+                <div class="event-desc">Celebrate the evening with exquisite dining, warm fellowship, and joyous blessings.</div>
+                <div class="event-meta"><i class="fa-regular fa-calendar"></i> Tuesday, 15th December 2026</div>
+                <div class="event-meta"><i class="fa-regular fa-clock"></i> 1:00 PM Onwards</div>
+                <div class="event-meta"><i class="fa-solid fa-location-dot"></i> <strong>TIPU SULTAN SHADI HALL</strong>, Medleri Road, Ranebennur</div>
+                <a href="https://maps.google.com/?q=Tipu+Sultan+Shadi+Hall+Ranebennur" target="_blank" class="map-btn">
+                    Get Directions &rarr;
+                </a>
+            </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <div style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;">Counting Every Moment</div>
+            <div class="countdown-title">Until Nikah Ceremony</div>
+            <div class="countdown-grid">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RSVP & Wishes Form -->
+        <div id="rsvp" class="rsvp-section">
+            <div class="section-header" style="margin-bottom: 1.5rem;">
+                <span>Be Our Guest</span>
+                <h2 style="font-size: 1.8rem;">RSVP &amp; Wishes Wall</h2>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.3rem;">Please confirm your attendance and leave your warm blessings for Er. Arshiya &amp; Er. Adil Faraz.</p>
+            </div>
+
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name *</label>
+                    <input type="text" id="guestName" class="form-control" placeholder="e.g. Mr. &amp; Mrs. Ahmed" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Attendance *</label>
+                    <select id="attendance" class="form-control" required>
+                        <option value="Joyfully Accepts">Joyfully Accepts</option>
+                        <option value="Regretfully Declines">Regretfully Declines</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Meal Preference *</label>
+                    <select id="mealPref" class="form-control" required>
+                        <option value="Standard">Standard / Halal</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Wishes &amp; Duas *</label>
+                    <textarea id="guestWish" class="form-control" rows="3" placeholder="Write your warm blessings and duas here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit RSVP &amp; Wishes</button>
+                <a href="#" id="whatsappBtn" class="whatsapp-rsvp-btn" onclick="sendWhatsAppRSVP(event)">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> RSVP via WhatsApp
+                </a>
+            </form>
+
+            <!-- Live Wishes Wall -->
+            <div class="wishes-wall">
+                <h4>Wishes &amp; Blessings Wall</h4>
+                <div class="wish-cards-container" id="wishesContainer">
+                    <!-- Dynamic wishes will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Regards -->
+        <div class="footer-section">
+            <span style="font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase;">Warm Regards</span>
+            <h4>From the Family</h4>
+            <p style="font-size: 1.05rem; font-weight: 600; color: var(--charcoal); margin-top: 0.5rem;">
+                Mr. &amp; Mrs. Maqbool Sab Kuppelur
+            </p>
+            <div class="contact-pills">
+                <span class="contact-pill"><i class="fa-solid fa-location-dot"></i> Vijay Nagar, 2nd Cross, Hirekerur</span>
+                <a href="tel:9901668946" class="contact-pill"><i class="fa-solid fa-phone"></i> 99016 68946</a>
+                <a href="tel:7892951790" class="contact-pill"><i class="fa-solid fa-phone"></i> 78929 51790</a>
+            </div>
+
+            <div style="margin-top: 2rem; border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 1.5rem;">
+                <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold);">With Best Compliments From :</span>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.4rem; font-style: italic;">
+                    Kuppelur Family, Asadi Family, Ballari Family, Relatives &amp; Friends
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Open Welcome Overlay Function
+        function openInvitation() {
+            const overlay = document.getElementById('welcome-overlay');
+            overlay.classList.add('opened');
+        }
+
+        // Countdown Timer Logic
+        const weddingDate = new Date("December 14, 2026 12:15:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Local Storage Wishes & WhatsApp RSVP
+        const rsvpForm = document.getElementById('rsvpForm');
+        const wishesContainer = document.getElementById('wishesContainer');
+
+        function loadWishes() {
+            const savedWishes = JSON.parse(localStorage.getItem('arshiya_adil_wishes')) || [
+                { name: "Dr. &amp; Mrs. Khan", meal: "Standard", status: "Joyfully Accepts", message: "May Allah bless Er. Arshiya &amp; Er. Adil Faraz with a lifetime of boundless joy and unwavering love!" },
+                { name: "Zubair &amp; Family", meal: "Standard", status: "Joyfully Accepts", message: "Heartiest congratulations to the Kuppelur and Ballari families! May this union be blessed." }
+            ];
+            
+            wishesContainer.innerHTML = '';
+            savedWishes.forEach(wish => {
+                const card = document.createElement('div');
+                card.className = 'wish-card';
+                card.innerHTML = `
+                    <div class="author">
+                        <span>${wish.name}</span>
+                        <span style="font-size: 0.75rem; font-weight: normal; color: #777;">(${wish.status})</span>
+                    </div>
+                    <div class="message">"${wish.message}"</div>
+                `;
+                wishesContainer.appendChild(card);
+            });
+        }
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value.trim();
+            const attendance = document.getElementById('attendance').value;
+            const meal = document.getElementById('mealPref').value;
+            const message = document.getElementById('guestWish').value.trim();
+
+            if(!name || !attendance || !message) return;
+
+            // Save to Local Storage
+            const savedWishes = JSON.parse(localStorage.getItem('arshiya_adil_wishes')) || [];
+            savedWishes.unshift({ name, meal, status: attendance, message });
+            localStorage.setItem('arshiya_adil_wishes', JSON.stringify(savedWishes));
+
+            loadWishes();
+            rsvpForm.reset();
+            alert('Thank you! Your RSVP and blessings have been saved successfully.');
+        });
+
+        function sendWhatsAppRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value.trim();
+            const attendance = document.getElementById('attendance').value;
+            const meal = document.getElementById('mealPref').value;
+            const message = document.getElementById('guestWish').value.trim();
+
+            if(!name || !message) {
+                alert('Please fill in your name and message before sending via WhatsApp.');
+                document.getElementById('guestName').focus();
+                return;
+            }
+
+            const waNumber = "919901668946";
+            const text = encodeURIComponent(`Assalamu Alaikum! RSVP from ${name}.\nAttendance: ${attendance}\nMeal: ${meal}\nDua/Message: ${message}`);
+            window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank');
+        }
+
+        // Initialize wishes on load
+        loadWishes();
+    </script>
+</body>
+</html>
